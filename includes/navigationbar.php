@@ -57,9 +57,9 @@ ul.topnav li.icon {display: none;}
 
 <ul class="topnav" id="myTopnav">
   <li><a class="active" href="index.php">Home</a></li>
-  <li><a href="#news">Sign in</a></li>
-  <li><a href="../signup.php">Sign up</a></li>
   <li><a href="../products.php">Shop</a></li>
+  <li style="float:right"><a href="#">Sign in</a></li>
+  <li style="float:right"><a href="../signup.php">Sign up</a></li>
 </ul>
 
 </body>
