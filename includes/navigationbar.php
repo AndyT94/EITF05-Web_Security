@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,8 +65,16 @@ ul.topnav li.icon {display: none;}
 <ul class="topnav" id="myTopnav">
   <li><a class="active" href="index.php">Home</a></li>
   <li><a href="../products.php">Shop</a></li>
-  <li style="float:right"><a href="#">Sign in</a></li>
-  <li style="float:right"><a href="../signup.php">Sign up</a></li>
+  <?php
+    $user = $_SESSION['user'];
+    if($user) {
+      echo '<li style="float:right"><a href="">Welcome, '.$user.'</a></li>';
+      echo '<li style="float:right"><a href="">Sign out</a></li>';
+    } else {
+      echo '<li style="float:right"><a href="../signin.php">Sign in</a></li>';
+      echo '<li style="float:right"><a href="../signup.php">Sign up</a></li>';
+    }
+   ?>
 </ul>
 
 </body>
