@@ -68,8 +68,8 @@ ul.topnav li.icon {display: none;}
   <?php
     $user = $_SESSION['user'];
     if($user) {
-      echo '<li style="float:right"><a href="">Welcome, '.$user.'</a></li>';
       echo '<li style="float:right"><a href="">Sign out</a></li>';
+      echo '<li style="float:right"><a href="">Welcome, '.$user.'</a></li>';
     } else {
       echo '<li style="float:right"><a href="../signin.php">Sign in</a></li>';
       echo '<li style="float:right"><a href="../signup.php">Sign up</a></li>';
