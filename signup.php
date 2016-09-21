@@ -6,7 +6,6 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <link rel="stylesheet" href="css/style.css" />
    <title>Sign-Up</title>
  </head>
   <body id="body-color">
