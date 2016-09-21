@@ -2,7 +2,11 @@
 <html>
 <head>
 <style>
-body {margin:0;}
+body {margin:0;
+    font-family: Verdana;
+    font-size: 12px;
+    color: #444;
+  }
 ul.topnav {
   list-style-type: none;
   margin: 0;
