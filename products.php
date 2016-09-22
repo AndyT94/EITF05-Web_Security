@@ -19,7 +19,7 @@ require("includes/navigationbar.php");
               <tr>
                   <th> Name </th>
                   <th> Description </th>
-                  <th> Price </th>
+                  <th> Price (SEK)</th>
               </tr>
               <?php
                 $db = new Database();
@@ -67,12 +67,13 @@ require("includes/navigationbar.php");
           <tr>
             <th> Product name </th>
             <th> Quantity </th>
-            <th> Price </th>
+            <th> Price (SEK)</th>
           </tr>
 
           <?php
           if(isset($_SESSION['cart'])) {
             $db = new Database();
+            $_SESSION['total'] = 0;
             foreach ($_SESSION['cart'] as $id => $quantity) {
               $result = $db->getIDProduct($id);
               while($row = $result -> fetch_assoc()) {
@@ -83,11 +84,15 @@ require("includes/navigationbar.php");
                   <td> <?php echo $row["price"]*$quantity?></td>
                 </tr>
             <?php
+                $_SESSION['total']+=$row["price"]*$quantity;
               }
             }
           }
           ?>
-          <td><a href="payment.php">Go to payment</a></td>
+          <tr>
+            <td>Total: <?php echo $_SESSION['total'] ?> SEK</td>
+            <td><a href="payment.php">Go to payment</a></td>
+          </tr>
         </table>
         </div><!--end sidebar-->
     </div><!--end container-->
