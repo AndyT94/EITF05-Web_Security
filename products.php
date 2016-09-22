@@ -71,6 +71,7 @@ require("includes/navigationbar.php");
           </tr>
 
           <?php
+          if(isset($_SESSION['cart'])) {
             $db = new Database();
             foreach ($_SESSION['cart'] as $id => $quantity) {
               $result = $db->getIDProduct($id);
@@ -84,6 +85,7 @@ require("includes/navigationbar.php");
             <?php
               }
             }
+          }
           ?>
           <td><a href="payment.php">Go to payment</a></td>
         </table>
