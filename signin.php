@@ -1,5 +1,4 @@
 <?php
-  session_start();
   require("includes/connection.php");
   require("includes/navigationbar.php");
 ?>
@@ -31,6 +30,7 @@
               $db = new Database();
               if($db->isAuthenticated($_POST['user'], $_POST['pass'])) {
                 $_SESSION['user'] = $_POST['user'];
+                $_SESSION['loggedin'] = true;
                 header("Location: products.php");
               } else {
                 echo "Wrong username or password!";
