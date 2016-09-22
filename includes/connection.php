@@ -39,5 +39,13 @@ class Database {
       return false;
     }
   }
+
+  public function getIDProduct($id) {
+    $connection = mysqli_connect('localhost','Admin','password','Eitf05') or die ('Could not connect');
+    $stmt = $connection->prepare("SELECT * FROM products WHERE id_product=?");
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
+    return $stmt->get_result();
+  }
 }
  ?>
