@@ -11,7 +11,7 @@ h1 {font-size: 50px;}
 h2 {font-size: 40px}
 
 #container {
-    width: 700px;
+    width: 900px;
     margin: 150px auto;
     background-color: #eee;
     overflow: hidden; /* Set overflow: hidden to clear the floats on #main and #sidebar */
@@ -19,16 +19,16 @@ h2 {font-size: 40px}
 }
 
     #main {
-        width: 490px;
+        width: 590px;
         float: left;
     }
 
     #main table {
-      width: 450px;
+      width: 580px;
     }
 
     #main table th{
-      padding: 20px;
+      padding: 10px;
       background-color: #ffd699;
       color: #001a66;
       text-align: left;
@@ -36,10 +36,26 @@ h2 {font-size: 40px}
     }
 
     #main table td{
-      padding: 5px;
+      padding: 10px;
     }
 
     #sidebar {
-        width: 200px;
+        width: 300px;
         float: left;
+    }
+
+    #sidebar table {
+      width: 280px;
+    }
+
+    #sidebar table th{
+      padding: 10px;
+      background-color: #ffd699;
+      color: #001a66;
+      text-align: left;
+
+    }
+
+    #sidebar table td{
+      padding: 5px;
     }
