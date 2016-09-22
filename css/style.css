@@ -11,7 +11,7 @@ h1 {font-size: 50px;}
 h2 {font-size: 40px}
 
 #container {
-    width: 900px;
+    width: 1000px;
     margin: 150px auto;
     background-color: #eee;
     overflow: hidden; /* Set overflow: hidden to clear the floats on #main and #sidebar */
@@ -40,12 +40,12 @@ h2 {font-size: 40px}
     }
 
     #sidebar {
-        width: 300px;
+        width: 400px;
         float: left;
     }
 
     #sidebar table {
-      width: 280px;
+      width: 380px;
     }
 
     #sidebar table th{
