@@ -90,7 +90,7 @@ require("includes/navigationbar.php");
           }
           ?>
           <tr>
-            <td>Total: <?php echo $_SESSION['total'] ?> SEK</td>
+            <td><b>Total:</b> <?php echo $_SESSION['total'] ?> SEK</td>
             <td><a href="payment.php">Go to payment</a></td>
           </tr>
         </table>
