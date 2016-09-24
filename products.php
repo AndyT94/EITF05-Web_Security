@@ -73,7 +73,7 @@ require("includes/navigationbar.php");
           <?php
           if(isset($_SESSION['cart'])) {
             $db = new Database();
-            
+
             $_SESSION['total'] = 0;
 
             foreach ($_SESSION['cart'] as $id => $quantity) {
@@ -92,7 +92,14 @@ require("includes/navigationbar.php");
 
           ?>
           <tr>
-            <td><b>Total:</b> <?php echo $_SESSION['total'];}?> SEK</td>
+            <td><b>Total:</b>
+              <?php
+                if(isset($_SESSION['total'])) {
+                  echo $_SESSION['total'] . " SEK";
+                }
+              }
+              ?>
+            </td>
             <td><a href="payment.php">Go to payment</a></td>
           </tr>
         </table>
