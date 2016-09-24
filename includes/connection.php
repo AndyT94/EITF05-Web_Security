@@ -47,5 +47,20 @@ class Database {
     $stmt->execute();
     return $stmt->get_result();
   }
+
+  public function getallComments(){
+    $connection = mysqli_connect('localhost','Admin','password','Eitf05') or die ('Could not connect');
+    $stmt = $connection->prepare("SELECT * FROM comments");
+    $stmt->execute();
+    return $stmt->get_result();
+  }
+
+  public function postComment($text){
+    $connection = mysqli_connect('localhost','Admin','password','Eitf05') or die ('Could not connect');
+    $stmt = $connection->prepare("INSERT INTO comments(text) VALUES(?)");
+    $stmt->bind_param('s',$text);
+    $stmt->execute();
+
+  }
 }
  ?>
