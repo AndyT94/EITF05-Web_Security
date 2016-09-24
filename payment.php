@@ -29,6 +29,8 @@ if(!isset($_SESSION['total']) || $_SESSION['total'] != 0){
 
 
 <?php
+} else {
+  echo "Can not pay zero transaction!";
 }
 if(isset($_POST['submit'])){
   $_SESSION['credit'] = $_POST['user'];
@@ -36,7 +38,6 @@ if(isset($_POST['submit'])){
     header("Location: receipt.php");
 }
 } else {
-
   echo 'Please sign in';
 }
 
