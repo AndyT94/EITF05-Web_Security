@@ -27,15 +27,24 @@
       </fieldset>
         <?php
           if(isset($_POST['submit'])){
-              $db = new Database();
-              if($db->isAuthenticated($_POST['user'], $_POST['pass'])) {
-                $_SESSION['user'] = $_POST['user'];
-                $_SESSION['loggedin'] = true;
-                header("Location: products.php");
+              if($_SESSION['failedLogin'] < 5 || $_SESSION['nextLogin'] < time()) {
+                $db = new Database();
+                if($db->isAuthenticated($_POST['user'], $_POST['pass'])) {
+                  $_SESSION['user'] = $_POST['user'];
+                  $_SESSION['loggedin'] = true;
+                  header("Location: products.php");
+                } else {
+                  echo "Wrong username or password!";
+                  $_SESSION['failedLogin'] = $_SESSION['failedLogin'] + 1;
+                  if($_SESSION['failedLogin'] >= 5) {
+                    $_SESSION['nextLogin'] = time() + 60;
+                  }
+                }
               } else {
-                echo "Wrong username or password!";
+                $diff = $_SESSION['nextLogin'] - time();
+                echo "Please try again in ".$diff." seconds!";
               }
-          }
+            }
         ?>
     </div>
   </body>
