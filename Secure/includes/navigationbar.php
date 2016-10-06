@@ -3,6 +3,9 @@
   if(!isset($_SESSION['user_token'])) {
     $_SESSION['user_token'] = uniqid();
   }
+  if(!isset($_SESSION['failedLogin'])) {
+    $_SESSION['failedLogin'] = 0;
+  }
 ?>
 
 <!DOCTYPE html>
