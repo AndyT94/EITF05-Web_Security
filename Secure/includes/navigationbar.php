@@ -6,6 +6,9 @@
   if(!isset($_SESSION['failedLogin'])) {
     $_SESSION['failedLogin'] = 0;
   }
+  if(!isset($_SESSION['nextLogin'])) {
+    $_SESSION['nextLogin'] = time();
+  }
 ?>
 
 <!DOCTYPE html>
