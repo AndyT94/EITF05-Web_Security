@@ -22,11 +22,15 @@
               <tr>
                 <td><input id="button" type="submit" name="submit" value="Sign In"></td>
               </tr>
+              <tr>
+                <input type="hidden" name="user_token" value="<?php echo  $_SESSION['user_token'];  ?>" />
+              </tr>
           </form>
         </table>
       </fieldset>
         <?php
           if(isset($_POST['submit'])){
+            if($_POST['user_token'] == $_SESSION['user_token']) {
               if($_SESSION['failedLogin'] < 5 || $_SESSION['nextLogin'] < time()) {
                 $db = new Database();
                 if($db->isAuthenticated($_POST['user'], $_POST['pass'])) {
@@ -45,6 +49,7 @@
                 echo "Please try again in ".$diff." seconds!";
               }
             }
+          }
         ?>
     </div>
   </body>

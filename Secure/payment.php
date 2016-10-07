@@ -20,6 +20,9 @@ if(!isset($_SESSION['total']) || $_SESSION['total'] != 0){
                 <tr>
                   <td><input id="button" type="submit" name="submit" value="Pay"></td>
                 </tr>
+                <tr>
+                  <input type="hidden" name="user_token" value="<?php echo  $_SESSION['user_token'];  ?>" />
+                </tr>
             </form>
           </table>
         </fieldset>

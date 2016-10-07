@@ -33,6 +33,9 @@ require("includes/navigationbar.php");
                 <td><button name="submit" name="submit" value= <?php echo $row['id_product']?>>Add to cart</td>
                   <td><button name="remove" name="remove" value= <?php echo $row['id_product']?>>Remove from cart</td>
               </tr>
+              <tr>
+                <input type="hidden" name="user_token" value="<?php echo  $_SESSION['user_token'];  ?>" />
+              </tr>
               <?php
                 }
               ?>
@@ -42,21 +45,25 @@ require("includes/navigationbar.php");
 
         <?php
           if(isset($_POST['submit'])){
-            if(!isset($_SESSION['cart'])){
-              $_SESSION['cart'] = array();
-            }
-            if(!isset($_SESSION['cart'][$_POST['submit']])) {
-              $_SESSION['cart'][$_POST['submit']] = 1;
-            } else {
-              $_SESSION['cart'][$_POST['submit']]++;
+            if($_POST['user_token'] == $_SESSION['user_token']) {
+              if(!isset($_SESSION['cart'])){
+                $_SESSION['cart'] = array();
+              }
+              if(!isset($_SESSION['cart'][$_POST['submit']])) {
+                $_SESSION['cart'][$_POST['submit']] = 1;
+              } else {
+                $_SESSION['cart'][$_POST['submit']]++;
+              }
             }
           }
 
           if(isset($_POST['remove'])){
-            if(!isset($_SESSION['cart'][$_POST['remove']]) || $_SESSION['cart'][$_POST['remove']]<=1) {
-              unset($_SESSION['cart'][$_POST['remove']]);
-            } else {
-              $_SESSION['cart'][$_POST['remove']]--;
+            if($_POST['user_token'] == $_SESSION['user_token']) {
+              if(!isset($_SESSION['cart'][$_POST['remove']]) || $_SESSION['cart'][$_POST['remove']]<=1) {
+                unset($_SESSION['cart'][$_POST['remove']]);
+              } else {
+                $_SESSION['cart'][$_POST['remove']]--;
+              }
             }
           }
         ?>
