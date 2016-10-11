@@ -33,8 +33,8 @@ class Database {
   //  $stmt->execute();
 //    $res = $stmt->get_result();
     if(mysqli_num_rows($res) > 0) {
-      $hashedPass = hash('sha256',$res->fetch_row()[0].$pass);
-      $stmt = $connection->query("SELECT * FROM Users WHERE username='$user' AND password='$hashedPass'");
+//      $hashedPass = hash('sha256',$res->fetch_row()[0].$pass);
+      $stmt = $connection->query("SELECT * FROM Users WHERE username='$user' AND password='$pass'");
 //      $stmt->bind_param('ss', $user, $hashedPass);
   //    $stmt->execute();
       return mysqli_num_rows($stmt) > 0;
